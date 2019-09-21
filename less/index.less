@@ -57,3 +57,242 @@ html, body {
     height: 100%;
 }
 
+
+/* -------------- Reset ends --------------- */
+
+
+// Variables---------
+@blue: #1628f2;
+@gray: #f0f0f0BF;
+@boldFont: 'Arial Black', arial, sans-serif;
+@textFont: 'Georgia', serif;
+
+
+// Mixins------------
+.flex {
+	display: flex;
+}
+
+.flexWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.styleBig {
+	color: black;
+	font-family: @boldFont;
+	font-size: 3.2rem;
+}
+
+.styleMed {
+	color: @blue;
+	font-family: @boldFont;
+	font-size: 2.4rem;
+}
+
+.grayBG {
+	background: @gray;
+	border: 1px solid black;
+	padding: 2%;
+}
+
+
+// Accessibility font-sizing------
+html {
+	font-size: 62.5%;
+}
+
+
+// Actual code begins------------
+body {
+	width: 800px;
+	margin: auto;
+
+	@media (max-width: 815px){
+		width: 100%;
+	}
+
+	p {
+		font-family: @textFont;
+		font-size: 1.6rem;
+		line-height: 1.5;
+	}
+
+	header {
+		.flex();
+		width: 100%;
+		justify-content: space-between;
+		padding: 2%;
+		background: @gray;
+		height: 20vh;
+		border-bottom: 2px solid @blue;
+
+		h1 {
+			.styleBig();
+		}
+
+		nav {
+			.flexWrap();
+			justify-content: space-evenly;
+			align-items: center;
+			width: 75%;
+
+			a {
+				text-decoration: none;
+				font-size: 1.8rem;
+				color: black;
+
+				@media (max-width: 800px){
+					font-size: 1.6rem;
+					width: 40%;
+				}
+
+				@media (max-width: 500px){
+					font-size: 1.4rem;
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+			a:hover {
+				opacity: .5;
+			}
+
+			a:active {
+				color: @gray;
+			}
+		}
+	}
+
+	section {
+		.flexWrap();
+		justify-content: space-evenly;
+		background-image: url('../images/Desk-pexels-edit.png'),
+						  url('../images/Office-pexels-edit.png');
+		background-size: auto 80vh, 100% 100vh;
+		background-position: top, bottom;
+		background-repeat: no-repeat;
+
+		.maindiv {
+			margin: 30px 0px;
+		}
+
+			h2 {
+				.styleMed();
+				margin-bottom: 15px;
+				text-decoration: overline underline black;
+			}
+
+		// Intro Code ---------
+		#intro {
+			width: 60%;
+			padding: 2%;
+
+			@media (max-width: 500px){
+				width: 96%;
+			}
+
+			p {
+				.grayBG();
+			}
+		}
+
+		// Skills Code ----------
+		#skills {
+			width: 32%;
+			padding: 2%;
+
+			@media (max-width: 500px){
+				width: 96%;
+			}
+		}
+
+			ul {
+				list-style: square inside;
+				.grayBG();
+				line-height: 2;
+
+				li {
+					font-size: 1.6rem;
+				}
+			}
+		
+		// Work History Code ---------
+		#workHistory {
+			.flexWrap();
+			justify-content: space-evenly;
+			width: 96%;
+			padding: 2%;
+
+			h2 {
+				width: 100%;
+			}
+
+			.job {
+				background: @gray;
+				width: 45%;
+				padding: 3%;
+				border: 1px solid black;
+				margin: 10px;
+
+				@media (max-width: 500px){
+					width: 96%;
+				}
+
+				h3 {
+					color: @blue;
+					font-family: @boldFont;
+					font-size: 2rem;
+					margin-bottom: 10px;
+					border-bottom: 1px solid black;
+					width: 100%;
+				}
+
+				.title {
+					font-size: 1.6rem;
+					font-style: italic;
+					color: black;
+				}
+
+				p {
+		
+				}
+			}
+		}
+
+		#contact {
+			width: 96%;
+			padding: 2%;
+
+			address {
+				font-size: 1.6rem;
+				line-height: 2;
+				.grayBG();
+				.flex();
+
+				.half1 {
+					width: 50%;
+				}
+
+				.half2 {
+					width: 50%;
+					text-align: right;
+				}
+
+				a {
+					text-decoration: none;
+					color: @blue;
+				}
+
+				a:hover {
+					color: rgba(0, 0, 0, .5);
+				}
+
+				a:active {
+					color: @gray;
+				}
+			}
+		}
+	}
+}
+
